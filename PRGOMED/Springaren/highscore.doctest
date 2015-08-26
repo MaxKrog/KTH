@@ -1,0 +1,6 @@
+>>> from tkinter import *
+>>> from highscore import Highscore
+>>> root = Tk()
+>>> HS = Highscore(root)
+>>> HS.getHighscores()
+

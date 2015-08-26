@@ -1,0 +1,20 @@
+>>> import tictactoe
+>>> tictactoe.anyVacantBoxes([['-', '-', '-'], ['-', '-', '-'], ['-', '-', '-']], '-')
+True
+>>> tictactoe.anyVacantBoxes([['-', '-', '-'], ['-', '-', '-'], ['-', '-', '-']], '1')
+False
+>>> tictactoe.anyVacantBoxes([['1', 'x', 1], ['O', 'P', 'A'], [4, 'P', 'Ö']], '-')
+False
+>>> tictactoe.anyVacantBoxes([['1', 'x', 1], ['O', 'P', 'A'], [4, 'P', '-']], '-')
+True
+
+
+>>> gPlan = [['-', '-', '-'], ['-', '-', '-'], ['-', '-', '-']]
+>>> tictactoe.updateGamePlan(1,0, gPlan, 'X')
+>>> print(gPlan)
+[['-', '-', '-'], ['X', '-', '-'], ['-', '-', '-']]
+
+>>> gPlan = [['X', '-', 1], ['X', '-', 'O'], ['-', '-', '-']]
+>>> tictactoe.updateGamePlan(2,1, gPlan, 'O')
+>>> print(gPlan)
+[['X', '-', 1], ['X', '-', 'O'], ['-', 'O', '-']]

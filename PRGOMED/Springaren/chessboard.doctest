@@ -1,0 +1,5 @@
+>>> from tkinter import *
+>>> from chessboard import ChessBoard
+
+>>> root = Tk()
+>>> CB = ChessBoard(root,root)

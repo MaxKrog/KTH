@@ -1,0 +1,17 @@
+>>> from chesssquare import ChessSquare
+>>> from tkinter import *
+>>> root = Tk()
+>>> chessSquare = ChessSquare(root,root,"red",10,7,5) #parent,container,color,dim,row,col
+>>> chessSquare.occupied
+False
+>>> chessSquare.available
+False
+>>> chessSquare.setOccupied(2)
+>>> chessSquare.occupied
+True
+>>> chessSquare.showAvailable()
+>>> chessSquare.available
+True
+>>> chessSquare.removeAvailable()
+>>> chessSquare.available
+False

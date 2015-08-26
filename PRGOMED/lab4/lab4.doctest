@@ -1,0 +1,20 @@
+>>> import lab4
+>>> lab4.rollLengthFunc("BA")
+25
+>>> lab4.rollLengthFunc("AB")
+1
+>>> lab4.rollLengthFunc("CE")
+2
+>>> lab4.rollLengthFunc("EC")
+24
+>>> lab4.convertLine("ABC HEJ",2)
+'CDE JGL\n'
+
+>>> lab4.convertLine("ABC XYZ",1)
+'BCD YZA\n'
+
+>>> lab4.convertLine("GHIjKLM",1)
+'HIJjLMN\n'
+
+>>> lab4.convertLine("XYZ",4)
+'BCD\n'

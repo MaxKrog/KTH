@@ -1,0 +1,19 @@
+>>> import lab3del2
+
+>>> lab3del2.returnNumbers(["mannen", "12", "1", "3", "hej"])
+[12, 1, 3]
+>>> lab3del2.returnNumbers(["123", "1", "hej", "2"])
+[123, 1, 2]
+
+>>> lab3del2.printLineBool(["123", "1", "hej", "2"])
+True
+>>> lab3del2.printLineBool(["123","123"])
+False
+
+>>> lab3del2.medianen([1,2,3,4,5]) 
+3
+>>> lab3del2.medianen([1,3,2,5])
+2.5
+
+>>> lab3del2.medelvarde([1,2,3,4,5,6])
+3.5

@@ -1,0 +1,9 @@
+>>> import lab3del1
+>>> lab3del1.falling_distance(0)
+0.0
+>>> lab3del1.falling_distance(1)
+4.91
+>>> lab3del1.falling_distance(2)
+19.64
+>>> lab3del1.falling_distance(10)
+491.0

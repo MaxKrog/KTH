@@ -1,0 +1,17 @@
+>>> from tvmodel import TV
+>>> a = TV("KTHTV")
+>>> a.higherVolume()
+4
+>>> a.lowerVolume()
+3
+>>> a.volume = 0
+>>> a.lowerVolume()
+0
+>>> a.volume = 10
+>>> a.higherVolume()
+10
+>>> a.selectedChannelFunc()
+'MTV'
+>>> a.selectedChannel = 3
+>>> a.selectedChannelFunc()
+'Kanal 4'
