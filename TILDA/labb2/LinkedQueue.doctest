@@ -1,0 +1,20 @@
+>>> from LinkedQueue import LinkedQueue
+>>> queue = LinkedQueue()
+>>> queue.isEmpty()
+True
+>>> queue.put("Max")
+>>> queue.put("Johan")
+>>> queue.put("Karl")
+>>> queue.isEmpty()
+False
+>>> queue.get()
+'Max'
+>>> queue.put('Mannen')
+>>> queue.get()
+'Johan'
+>>> queue.get()
+'Karl'
+>>> queue.get()
+'Mannen'
+>>> queue.isEmpty()
+True
