@@ -5,8 +5,9 @@ SELECT last_name, first_name
 FROM authors 
 WHERE author_id = (
 	SELECT author_id 
-	FROM books 
-	WHERE books.title = 'The Shining');
+	FROM books
+	WHERE books.title = 'The Shining'
+	);
 
 /* Which titles are written by Paulette Bourgeois? 
 Answer: Franklin in the dark */
@@ -128,6 +129,7 @@ HITTA ANTAL BÖCKER I STOCK + SÅLDA * cost.
 TA REDA PÅ VILKEN PUBLISHER MED SUM(PUBLISHERNS BÖCKER) SOM BLIR HÖGST.
 */
 
+
 	SELECT sum(X.revenue) as revenue, X.publisher_id
 	FROM (
 		SELECT B.isbn, B.publisher_id, (A.stock + B.sold) * A.cost as revenue
@@ -159,23 +161,49 @@ Answer: Jackson, Annie
 
 SELECT first_name, last_name
 FROM customers
-WHERE customer_id = (
-	SELECT C.customer_id, count( DISTINCT B.subject_id) as subjectsCount
-	FROM shipments AS C
-		INNER JOIN(
-			SELECT B.subject_id, B.book_id, A.isbn
-			FROM books AS B
-				INNER JOIN(
-					SELECT A.isbn, A.book_id
-					FROM editions AS A
-					) AS A
-				ON B.book_id = A.book_id
-			) AS B
-		ON B.isbn = C.isbn
-	GROUP BY customer_id
+WHERE customer_id IN (
+	SELECT customer_id
+	FROM(
+		SELECT C.customer_id, count( DISTINCT B.subject_id) as subjectsCount
+		FROM shipments AS C
+			INNER JOIN(
+				SELECT B.subject_id, B.book_id, A.isbn
+				FROM books AS B
+					INNER JOIN(
+						SELECT A.isbn, A.book_id
+						FROM editions AS A
+						) AS A
+					ON B.book_id = A.book_id
+				) AS B
+			ON B.isbn = C.isbn
+		GROUP BY customer_id
+		) AS D
+	WHERE subjectsCount = 3
 	)
+	
 ;
 
+/* 10. Which subjects have not sold any books?
+Answer: Mystery Business Religion
+Cooking Poetry
+History Romance Entertainment Science
+*/
+
+SELECT subject
+FROM subjects
+WHERE subject_id NOT IN(
+	SELECT subject_id /* GET ALL SUBJECT_IDS */
+	FROM books
+	where book_id IN (
+		SELECT book_id  /* CONVERT TO BOOK_ID */
+		FROM editions
+		WHERE isbn IN ( /* GET ALL SOLD BOOKS ISBN */
+			SELECT isbn
+			FROM shipments
+			)
+		)
+	)
+;
 
 
 
