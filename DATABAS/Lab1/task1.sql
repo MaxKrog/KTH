@@ -17,7 +17,8 @@ FROM books
 WHERE author_id = (
 	SELECT author_id 
 	FROM authors 
-	WHERE first_name = 'Paulette' AND last_name = 'Bourgeois'
+	WHERE first_name = 'P
+	aulette' AND last_name = 'Bourgeois'
 	);
 
 /* Who bought books about “Horror”?
@@ -204,7 +205,6 @@ WHERE subject_id NOT IN(
 		)
 	)
 ;
-
 
 
 
